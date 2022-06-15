@@ -8,5 +8,5 @@ export {default as TestimonialSlider} from './UI/slider/TestimonialSlider'
 export {default as Cart} from './UI/cart/Cart'
 export {default as CartItem} from './UI/cart/CartItem'
 export {default as CommonSection} from './UI/common-section/CommonSection'
-
+export {default as Tr} from './UI/tableTr/Tr'
 
