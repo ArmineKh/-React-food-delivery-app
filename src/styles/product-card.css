@@ -3,6 +3,7 @@
   text-align: center;
   padding: 30px;
   cursor: pointer;
+  min-height: 378px;
 }
 
 .product__img {
@@ -12,6 +13,10 @@
 
 .product__img:hover {
   transform: scale(1.2);
+}
+
+.product__img img {
+  width: 100%;
 }
 
 .product__content h5 a {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 
 import Helmet from '../components/Helmet/Helmet'
@@ -18,8 +18,7 @@ import foodCategoryImg03 from "../assets/images/bread.png";
 import whyImg from "../assets/images/location.png";
 import networkImg from "../assets/images/network.png";
 
-import { Category, ProductCard } from "../components/index";
-// import TestimonialSlider from "../components/UI/slider/TestimonialSlider.jsx";
+import { Category, ProductCard, TestimonialSlider } from "../components/index";
 
 
 
@@ -27,6 +26,43 @@ const Home = () => {
   const [category, setCategory] = useState("ALL");
   const [allProducts, setAllProducts] = useState(products);
   const [hotPizza, setHotPizza] = useState([]);
+
+  useEffect(() => {
+    const filteredPizza = products.filter(item => item.category === 'Pizza');
+    const slicePizza = filteredPizza.slice(0,4);
+    setHotPizza(slicePizza);
+
+    return () => {
+      
+    }
+  }, [])
+  
+
+  useEffect(() => {
+    if(category === 'ALL'){
+      setAllProducts(products)
+    }
+
+    if(category === 'BURGER'){
+      const filteredProducts = products.filter(item => item.category === 'Burger')
+      setAllProducts(filteredProducts)
+    }
+
+    if(category === 'PIZZA'){
+      const filteredProducts = products.filter(item => item.category === 'Pizza')
+      setAllProducts(filteredProducts)
+    }
+
+    if(category === 'BREAD'){
+      const filteredProducts = products.filter(item => item.category === 'Bread')
+      setAllProducts(filteredProducts)
+    }
+  
+    return () => {
+      
+    }
+  }, [category])
+  
 
   return (
     <Helmet title='Home'>
@@ -191,7 +227,7 @@ const Home = () => {
                 <ListGroup className="mt-4">
                   <ListGroupItem className="border-0 ps-0">
                     <p className=" choose__us-title d-flex align-items-center gap-2 ">
-                      <i class="ri-checkbox-circle-line"></i> Fresh and tasty
+                      <i className="ri-checkbox-circle-line"></i> Fresh and tasty
                       foods
                     </p>
                     <p className="choose__us-desc">
@@ -202,7 +238,7 @@ const Home = () => {
 
                   <ListGroupItem className="border-0 ps-0">
                     <p className="choose__us-title d-flex align-items-center gap-2 ">
-                      <i class="ri-checkbox-circle-line"></i> Quality support
+                      <i className="ri-checkbox-circle-line"></i> Quality support
                     </p>
                     <p className="choose__us-desc">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -212,7 +248,7 @@ const Home = () => {
 
                   <ListGroupItem className="border-0 ps-0">
                     <p className="choose__us-title d-flex align-items-center gap-2 ">
-                      <i class="ri-checkbox-circle-line"></i>Order from any
+                      <i className="ri-checkbox-circle-line"></i>Order from any
                       location{" "}
                     </p>
                     <p className="choose__us-desc">
@@ -258,7 +294,7 @@ const Home = () => {
                   quis provident placeat fugiat!
                 </p>
 
-                {/* <TestimonialSlider /> */}
+                <TestimonialSlider />
               </div>
             </Col>
 

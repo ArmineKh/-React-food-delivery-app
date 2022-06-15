@@ -4,8 +4,9 @@ export {default as Helmet} from './Helmet/Helmet'
 export {default as Layout} from './Layout/Layout'
 export {default as Category} from './UI/category/Category'
 export {default as ProductCard} from './UI/product-card/ProductCard'
-
-// export {default as Login} from './Login'
-// export {default as Register} from './Register'
+export {default as TestimonialSlider} from './UI/slider/TestimonialSlider'
+export {default as Cart} from './UI/cart/Cart'
+export {default as CartItem} from './UI/cart/CartItem'
+export {default as CommonSection} from './UI/common-section/CommonSection'
 
 
